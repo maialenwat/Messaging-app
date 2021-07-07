@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbCardModule } from '@nebular/theme';
 import { InboxComponent } from './inbox/inbox.component';
 
 
@@ -10,7 +9,6 @@ import { InboxComponent } from './inbox/inbox.component';
   ],
   imports: [
     CommonModule,
-    NbCardModule
   ],
   exports: [InboxComponent]
 })

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Message } from '../models/message';
 
 @Component({
@@ -8,36 +8,27 @@ import { Message } from '../models/message';
 })
 export class InboxComponent implements OnInit {
 
-  messages: Message[] = [
-    {
-      id: 2,
-      from: 'lolo',
-      to: 'maia',
-      subject: 'nickname',
-      body: 'delta',
-      read: false
-    },
-    {
-      id: 18,
-      from: 'Mario',
-      to: 'Peach',
-      subject: 'Tired',
-      body: 'Can you stop being kidnapped ?',
-      read: false
-    },
-    {
-      id: 4,
-      from: 'Darth Vador',
-      to: 'Son',
-      subject: 'Fatherhood',
-      body: 'I am your father',
-      read: false
-    },
-  ];
+  @Input() messages!: Message[]
+  @Input() count: number = 0
 
   constructor() { }
 
   ngOnInit(): void {
+    //gestion du nombre de messages
+    this.messages = this.messages.splice(0,this.count);
+
+  }
+
+  //Méthodes
+  filter(event: Event){
+    // "caste" de l'élément afin de pouvoir le manipuler
+    let input = event.target as HTMLInputElement;
+
+    // renvoi une liste de message si la condition dans filter() est vérifiée
+    this.messages = this.messages.filter(message => message.read === input.checked)
+
+    return
+    console.log(event)
   }
 
 }

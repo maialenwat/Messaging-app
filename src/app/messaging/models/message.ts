@@ -5,5 +5,4 @@ export interface Message {
   subject: String,
   body: String,
   read: Boolean,
-
 }
