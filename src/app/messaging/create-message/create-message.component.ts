@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Message } from '../models/message';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-create-message',
@@ -8,23 +9,25 @@ import { Message } from '../models/message';
 })
 export class CreateMessageComponent implements OnInit {
 
-  message: Message = {
-    to: "",
-    subject: "",
-    body: ""
+  message: Message = {};
 
-  };
-
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
   }
 
   // Méthodes
+
+  /**
+   * ajoute un message à la liste des messages au click du bouton "send"
+   */
   send(){
-    console.log(this.message);
+    this.messageService.create(this.message);
   }
 
+  /**
+   * efface le texte inscrit dans les champs dédiés
+   */
   clear(){
     this.message = {};
   }

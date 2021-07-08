@@ -1,5 +1,5 @@
 export interface Message {
-  id?: Number,
+  id?: number,
   from?: String,
   to?: String,
   subject?: String,
