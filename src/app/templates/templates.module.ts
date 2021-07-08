@@ -6,6 +6,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContentComponent } from './content/content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
@@ -21,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     CommonModule,
     BrowserAnimationsModule,
-    MessagingModule
+    MessagingModule,
+    AppRoutingModule
   ],
   exports: [
     HeaderComponent,
