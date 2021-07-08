@@ -27,8 +27,7 @@ export class InboxComponent implements OnInit {
     // renvoi une liste de message si la condition dans filter() est vérifiée
     this.messages = this.messages.filter(message => message.read === input.checked)
 
-    return
-    console.log(event)
+    return console.log(event)
   }
 
 }

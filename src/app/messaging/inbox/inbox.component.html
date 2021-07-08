@@ -1,18 +1,3 @@
-<div class="shadow p-4 bg-white" *ngFor="let message of messages">
-
-  <label for="read">read </label>
-  <input type="checkbox" name="read" (click)="filter($event)">
-
-  <div class="text-left">
-      <h3 class="mb-2 text-gray-700">From : {{message.from}}</h3>
-      <h3 class="mb-2 text-gray-700">To : {{message.to}}</h3>
-      <p class="text-grey-600">Subject : {{message.subject}}</p>
-      <p class="text-grey-600">Message : {{message.body}}</p>
-  </div>
-
-</div>
-
-
 <!-- component -->
   <div class="container mx-auto px-4 sm:px-8">
       <div class="py-8">
@@ -20,14 +5,14 @@
               <h2 class="text-2xl font-semibold leading-tight">Inbox</h2>
           </div>
           <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+            <!-- filtre pour afficher les messages lus -->
+            <label for="read">Read only : </label>
+            <input type="checkbox" name="read" (click)="filter($event)">
+
               <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                   <table class="min-w-full leading-normal">
                       <thead>
                           <tr>
-                              <th
-                                  class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                                  State
-                              </th>
                               <th
                                   class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
                                   From
@@ -48,10 +33,6 @@
                       </thead>
                       <tbody>
                           <tr *ngFor="let message of messages">
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                              <label for="read">read </label>
-                              <input type="checkbox" name="read" (click)="filter($event)">
-                            </td>
                               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                   <div class="flex items-center">
                                       <div class="ml-3">

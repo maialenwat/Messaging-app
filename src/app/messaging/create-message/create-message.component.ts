@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Message } from '../models/message';
 
 @Component({
   selector: 'app-create-message',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateMessageComponent implements OnInit {
 
+  message: Message = {
+    to: "",
+    subject: "",
+    body: ""
+
+  };
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  // Méthodes
+  send(){
+    console.log(this.message);
+  }
+
+  clear(){
+    this.message = {};
   }
 
 }

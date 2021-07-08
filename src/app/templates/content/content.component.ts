@@ -19,9 +19,9 @@ export class ContentComponent implements OnInit {
         id: 2,
         from: 'lolo',
         to: 'maia',
-        subject: 'nickname',
+        subject: 'Nickname',
         body: 'delta',
-        read: false
+        read: true
       },
       {
         id: 18,
@@ -29,7 +29,7 @@ export class ContentComponent implements OnInit {
         to: 'Peach',
         subject: 'Tired',
         body: 'Can you stop being kidnapped ?',
-        read: false
+        read: true
       },
       {
         id: 4,
