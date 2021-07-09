@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { InboxComponent } from './inbox/inbox.component';
 import { CreateMessageComponent } from './create-message/create-message.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -11,8 +12,13 @@ import { FormsModule } from '@angular/forms';
     CreateMessageComponent
   ],
   imports: [
-    CommonModule, FormsModule
+    CommonModule,
+    FormsModule,
+    HttpClientModule
   ],
-  exports: [InboxComponent, CreateMessageComponent]
+  exports: [
+    InboxComponent,
+    CreateMessageComponent
+  ]
 })
 export class MessagingModule { }

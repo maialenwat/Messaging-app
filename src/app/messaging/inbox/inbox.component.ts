@@ -16,8 +16,11 @@ export class InboxComponent implements OnInit {
 
   ngOnInit(): void {
     //gestion du nombre de messages
-    this.messages = this.messageService.getAll();
-
+    this.messageService.getAll()
+      .then(ms => {
+        this.messages = ms
+      })
+      .catch(reason => console.log(reason));
   }
 
   //Méthodes

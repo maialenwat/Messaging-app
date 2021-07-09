@@ -23,6 +23,7 @@ export class CreateMessageComponent implements OnInit {
    */
   send(){
     this.messageService.create(this.message);
+
   }
 
   /**
