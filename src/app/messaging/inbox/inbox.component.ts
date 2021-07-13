@@ -1,5 +1,6 @@
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { MessageService } from './../services/message.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Message } from '../models/message';
 
 @Component({
@@ -7,20 +8,29 @@ import { Message } from '../models/message';
   templateUrl: './inbox.component.html',
   styleUrls: ['./inbox.component.css']
 })
-export class InboxComponent implements OnInit {
+export class InboxComponent implements OnInit, OnDestroy {
 
   @Input() messages!: Message[]
   @Input() count: number = 0
 
-  constructor(private messageService: MessageService) { }
+  evt!: Subscription
+  constructor(private messageService: MessageService) {
+
+  }
+
+
+
+  ngOnDestroy(): void {
+    this.evt.unsubscribe()
+  }
 
   ngOnInit(): void {
-    //gestion du nombre de messages
-    this.messageService.getAll()
-      .then(ms => {
-        this.messages = ms
-      })
-      .catch(reason => console.log(reason));
+    this.evt = this.messageService.subject.subscribe(messages => this.messages = messages)
+
+
+
+    this.messageService.reload()
+
   }
 
   //Méthodes

@@ -1,47 +1,25 @@
 import { Message } from './../models/message';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
 
-  // private messages: Message[] = [
-  //   {
-  //     id: 0,
-  //     from: 'lolo',
-  //     to: 'maia',
-  //     subject: 'Nickname',
-  //     body: 'delta',
-  //     read: true
-  //   },
-  //   {
-  //     id: 1,
-  //     from: 'Mario',
-  //     to: 'Peach',
-  //     subject: 'Tired',
-  //     body: 'Can you stop being kidnapped ?',
-  //     read: true
-  //   },
-  //   {
-  //     id: 2,
-  //     from: 'Darth Vador',
-  //     to: 'Son',
-  //     subject: 'Fatherhood',
-  //     body: 'I am your father',
-  //     read: false
-  //   },
-  //   {
-  //     id: 3,
-  //     from: 'Zelda',
-  //     to: 'Link',
-  //     subject: 'Mission',
-  //     body: 'Save Hyrule one more time !',
-  //     read: false
-  //   }
-  // ]
-  constructor(private http: HttpClient) { }
+
+  subject: BehaviorSubject<Message[]>
+
+
+  constructor(private http: HttpClient, private router: Router) {
+    this.subject = new BehaviorSubject([] as Message[]);
+  }
+
+  async load(){
+    let messages = await this.http.get("").toPromise();
+  }
 
   /**
    *
@@ -49,21 +27,8 @@ export class MessageService {
    */
   getAll(): Promise<Message[]>{
     return this.http
-    .get<Message[]>("http://localhost:4200/assets/datas.json")
+    .get<Message[]>("http://localhost:2400/messages")
     .toPromise();
-
-    // this.http
-    //   .get<Message[]>("http://localhost/backend")
-    //   .subscribe((ms) => {
-    //     this.messages = ms
-    //   });
-
-    // this.http
-    //   .get<Message[]>("http://localhost/backend")
-    //   .toPromise()
-    //   .then((ms)=>{
-    //     this.messages = ms
-    //   });
   }
 
   /**
@@ -79,6 +44,44 @@ export class MessageService {
    * Ajoute un nouveau message à la liste des messages
    */
   create(message: Message): void{
-    // this.messages.push(message);
+    this.http
+      .post('http://localhost:2400/messages', message)
+      .toPromise()
+      // si la requête s'est bien passée
+      .then(datas => {
+//  this.reload()
+        this.router.navigate(['messages']);
+
+      })
+      // dans le cas où ça s'est mal passée
+      .catch(reason => {
+        console.log(reason)
+      })
   }
+
+
+  /**
+   * retourne l'observable de HttpClient
+   */
+  getObservable(): Observable<Message[]>{
+    return this.http
+      .get<Message[]>("http://localhost:2400/messages")
+  }
+
+
+  /**
+   * récupère la liste de messages dans le backend,
+   * met à jour la vue
+   */
+  reload(): void {
+    this.http
+    .get<Message[]>("http://localhost:2400/messages")
+    .toPromise()
+    .then(messages => {
+      // next() met à jour la donnée à l'intérieur de l'observable
+      this.subject.next(messages)
+    })
+    .catch(reason => console.log(reason))
+  }
+
 }
