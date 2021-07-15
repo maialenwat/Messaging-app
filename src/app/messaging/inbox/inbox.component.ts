@@ -14,23 +14,17 @@ export class InboxComponent implements OnInit, OnDestroy {
   @Input() count: number = 0
 
   evt!: Subscription
-  constructor(private messageService: MessageService) {
-
-  }
-
-
+  constructor(private messageService: MessageService) { }
 
   ngOnDestroy(): void {
     this.evt.unsubscribe()
   }
 
   ngOnInit(): void {
-    this.evt = this.messageService.subject.subscribe(messages => this.messages = messages)
-
-
+    this.evt = this.messageService.subject
+    .subscribe(messages => this.messages = messages)
 
     this.messageService.reload()
-
   }
 
   //Méthodes
