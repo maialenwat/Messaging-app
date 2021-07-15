@@ -10,13 +10,12 @@ import { AppRoutingModule } from '../app-routing.module';
 
 
 
-
 @NgModule({
   declarations: [
     HeaderComponent,
     NavigationComponent,
     FooterComponent,
-    ContentComponent,
+    ContentComponent
 
   ],
   imports: [
@@ -29,8 +28,7 @@ import { AppRoutingModule } from '../app-routing.module';
     HeaderComponent,
     NavigationComponent,
     FooterComponent,
-    ContentComponent,
-
+    ContentComponent
   ],
 })
 export class TemplatesModule { }

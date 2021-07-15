@@ -4,12 +4,14 @@ import { InboxComponent } from './inbox/inbox.component';
 import { CreateMessageComponent } from './create-message/create-message.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NotificationComponent } from './notification/notification.component';
 
 
 @NgModule({
   declarations: [
     InboxComponent,
-    CreateMessageComponent
+    CreateMessageComponent,
+    NotificationComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   exports: [
     InboxComponent,
-    CreateMessageComponent
+    CreateMessageComponent,
+    NotificationComponent
   ]
 })
 export class MessagingModule { }
