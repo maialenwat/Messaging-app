@@ -1,0 +1,66 @@
+[
+    {
+        "id": 0,
+        "body": "delta",
+        "subject": "nickname",
+        "from": "lolo",
+        "to": "maia",
+        "read": true
+    },
+    {
+        "id": 1,
+        "body": "stop being kidnapped !",
+        "subject": "tired",
+        "from": "mario",
+        "to": "peach",
+        "read": true
+    },
+    {
+        "id": 2,
+        "body": "i'm your father",
+        "subject": "fatherhood",
+        "from": "darth vador",
+        "to": "anakin",
+        "read": true
+    },
+    {
+        "id": 3,
+        "body": "je compile",
+        "subject": "mon sif",
+        "from": "loic",
+        "to": "class",
+        "read": false
+    },
+    {
+        "from": "loic",
+        "to": "juliette",
+        "subject": "un verre",
+        "body": "ivresse",
+        "id": 4,
+        "read": false
+    },
+    {
+        "body": "le coprs du cris",
+        "subject": "le saint esprit",
+        "from": "jesus",
+        "to": "disciples",
+        "id": 5,
+        "read": false
+    },
+    {
+        "from": "Mr Mackey",
+        "to": "students",
+        "subject": "halte",
+        "body": "je vais vous violer dans la bouche!",
+        "id": 6,
+        "read": false
+    },
+    {
+        "from": "Max",
+        "to": "Maia",
+        "subject": "Fatigué",
+        "body": "Je veux dormir !",
+        "id": 7,
+        "read": false
+    }
+]
