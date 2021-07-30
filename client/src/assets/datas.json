@@ -1,0 +1,34 @@
+[
+  {
+    "id": 0,
+    "from": "lolo",
+    "to": "maia",
+    "subject": "Nickname",
+    "body": "delta",
+    "read": true
+  },
+  {
+    "id": 1,
+    "from": "Mario",
+    "to": "Peach",
+    "subject": "Tired",
+    "body": "Can you stop being kidnapped ?",
+    "read": true
+  },
+  {
+    "id": 2,
+    "from": "Darth Vador",
+    "to": "Son",
+    "subject": "Fatherhood",
+    "body": "I am your father",
+    "read": false
+  },
+  {
+    "id": 3,
+    "from": "Zelda",
+    "to": "Link",
+    "subject": "Mission",
+    "body": "Save Hyrule one more time !",
+    "read": false
+  }
+]

@@ -1,0 +1,83 @@
+<div class="container mx-auto px-4 sm:px-8">
+  <div class="py-8">
+    <div>
+      <h2 class="text-2xl font-semibold leading-tight">New Message</h2>
+    </div>
+    <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+      <div class="inline-block shadow rounded-lg overflow-hidden">
+
+        <div class="w-full max-w-xs">
+          <form class="bg-white w-full rounded px-8 pt-6 pb-8 mb-4">
+            <!-- FROM -->
+            <div class="mb-4">
+              <label class="block text-gray-600 text-sm font-semibold mb-2" for="from">
+                From
+              </label>
+              <input
+                class="bg-gray-100 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="from"
+                type="text"
+                [(ngModel)]="message.from"
+                name="from"
+              >
+            </div>
+
+            <!-- TO -->
+            <div class="mb-4">
+              <label class="block text-gray-600 text-sm font-semibold mb-2" for="to">
+                To
+              </label>
+              <input
+                class="bg-gray-100 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="to"
+                type="text"
+                [(ngModel)]="message.to"
+                name="to"
+              >
+            </div>
+
+            <!-- SUBJECT -->
+            <div class="mb-4">
+              <label class="block text-gray-600 text-sm font-semibold mb-2" for="subject">
+                Subject
+              </label>
+              <input
+                class="bg-gray-100 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="subject"
+                type="text"
+                [(ngModel)]="message.subject"
+                name="subject"
+              >
+            </div>
+
+            <!-- BODY -->
+            <div class="mb-4">
+              <label class="block text-gray-600 text-sm font-semibold mb-2" for="body">
+                Body
+              </label>
+              <input
+                class="bg-gray-100 p-1 appearance-none border rounded w-full text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="body"
+                type="text"
+                [(ngModel)]="message.body"
+                name="body"
+              >
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="flex items-center justify-between">
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" (click)="send()">
+                Send
+              </button>
+              <button class="bg-green-300 hover:bg-tomato-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" (click)="clear()">
+                Clear
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
